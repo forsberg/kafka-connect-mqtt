@@ -9,7 +9,7 @@
 ) > ~/standalone-properties.properties
 
 #merge in mqtt remote password to mqtt properties
-mqtt_password=$(cat /etc/kafka-connector/remote_password)
+mqtt_password=$(cat /etc/kafka-password/remote-password)
 (cat /etc/kafka-connector/mqtt.properties;
     echo;
     echo "mqtt.password=$mqtt_password";
