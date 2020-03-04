@@ -15,4 +15,4 @@ mqtt_password=$(cat /etc/kafka-password/remote-password)
     echo "mqtt.password=$mqtt_password";
 ) > ~/mqtt.properties
 
-$KAFKA_HOME/bin/connect-standalone.sh ~/standalone-properties.properties ~/mqtt.properties -Dlog4j.configuration=file:/etc/log/log4j.properties
+$KAFKA_HOME/bin/connect-standalone.sh ~/standalone-properties.properties ~/mqtt.properties
