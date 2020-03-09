@@ -69,17 +69,14 @@ public class MqttSourceTask extends SourceTask implements MqttCallback {
 			log.warn("[{}] failure while processing connect configuration", mMqttClientId);
 			return;
 		}
-
-		connectToBroker(connectOptions);
-
-		subscribeMqttTopic();
+        reconnectToBroker();
 	}
 
 	/**
 	 * Stop this task.
 	 */
 	@Override public void stop() {
-		log.info("Stoping the MqttSourceTask");
+		log.info("Stopping the MqttSourceTask");
 
 		try {
 			mClient.disconnect();
@@ -207,8 +204,8 @@ public class MqttSourceTask extends SourceTask implements MqttCallback {
 
 						log.info("[{}] Reconnected to Broker", mMqttClientId);
 					} catch (InterruptedException e) {
-						log.error("[{}] Reconnect thread interruted", mMqttClientId, e);
-					}
+						log.error("[{}] Reconnect thread interrupted", mMqttClientId, e);
+                    }
 				} while (!mClient.isConnected());
 			}
 		});

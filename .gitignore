@@ -109,3 +109,7 @@ Temporary Items
 .apdisk
 
 /msg.bin
+.classpath
+.project
+.settings/
+bin/
