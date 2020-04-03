@@ -22,5 +22,15 @@
 
 * generate API documentation: `./gradlew javadoc` - output `./build/docs/javadoc`
 
+## Building the Docker image
+
+The docker image can be used to run the connector in standalone mode, without
+a Kafka connect cluster.
+
+To build the docker image, run:
+
+    ./gradlew jar copyRuntimeLibs
+    docker build . -f docker/Dockerfile
+
 ## License
 See [LICENSE](LICENSE) file for License
